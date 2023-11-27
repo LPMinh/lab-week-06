@@ -1,4 +1,5 @@
 "# lab-week-06" 
+<h1>Công nghệ sử dụng: Spring boot,Thymleaf,MariaDb,SpringData,SpringMVC<h1>
 <h1>Class diagram</h1>
 <img width="389" alt="image" src="https://github.com/LPMinh/lab-week-06/assets/95513996/9bdbdea3-f58f-4206-bfea-d8afc5545395">
 <h1>Trang đăng nhập </h1>
