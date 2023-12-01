@@ -15,7 +15,7 @@
     $(document).ready(function() {
       // Bắt sự kiện click vào nút "reply"
       $("#btn-reply").click(function() {
-        alert("reply");
+
         console.log("reply");
         // Hiển thị hoặc ẩn form reply dựa trên trạng thái hiện tại
         $(".reply-form").css("display", function() {
@@ -27,7 +27,7 @@
   <script>
     $(document).ready(function () {
       $('.btn-edit').click(function () {
-        alert("da click")
+
         // Gửi yêu cầu đến controller và hiển thị kết quả trong modal
         $('#modal-edit').modal('show');
       });
@@ -69,12 +69,7 @@
     // Khi tài liệu được tải hoàn tất
     $(document).ready(function() {
       $(".btn-reply").click(function() {
-
         var commentId = $(this).data("comment-id");
-        alert(commentId);
-        // Ẩn tất cả các form reply
-
-        // Hiển thị form reply của comment được nhấn hoặc ẩn nếu đang hiển thị
         $("#reply-form-" + commentId).css("display", function() {
           return $(this).css("display") === "none" ? "flex" : "none";
         });

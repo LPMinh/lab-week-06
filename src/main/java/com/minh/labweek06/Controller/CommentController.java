@@ -40,13 +40,21 @@ public class CommentController {
     }
 
     @PostMapping(value="/add-reply")
-    public String addReply(@RequestParam("reply") String reply,@RequestParam("comment_id") Long comment_id,@RequestParam("user_id") Long user_id){
+    public String addReply(@RequestParam("reply") String reply,@RequestParam("comment_id") Long comment_id,@RequestParam("user_id") Long user_id,HttpSession httpSession){
         User user=userRepository.findById(user_id).orElseThrow();
         PostComment postComment=postCommentRepository.findById(comment_id).orElseThrow();
         Post post=postComment.getPost();
         PostComment postComment1=new PostComment(post,null,new HashSet<PostComment>(),true,reply,postComment,user);
         postComment.getPostComments().add(postComment1);
         postCommentRepository.save(postComment);
-        return "redirect:/profile/"+user_id;
+        Object page= httpSession.getAttribute("page");
+        if(page!=null){
+            page=(int)page;
+            httpSession.removeAttribute("page");
+            return "redirect:/paging?page="+page+"&size=5";
+        }else{
+            return "redirect:/profile/"+user_id;
+        }
+        
     }
 }
